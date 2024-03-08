@@ -40,7 +40,5 @@ get("/:currency/:compare") do
 
   @result = parsed_data.fetch("result")
 
-  pp parsed_data
-
   erb(:currency_compare)
 end
