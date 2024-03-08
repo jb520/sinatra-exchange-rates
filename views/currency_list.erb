@@ -4,6 +4,6 @@
 
 <ul>
   <% @currency_arr.each do |type| %>
-    <li><a href=/@currency/<%= type %>>Convert 1 <%= @currency %> to <%= type %>...</a></li>
+    <li><a href=/<%= @currency %>/<%= type %>>Convert 1 <%= @currency %> to <%= type %>...</a></li>
   <% end %>
 </ul>
