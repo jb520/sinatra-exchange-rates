@@ -33,10 +33,14 @@ get("/:currency/:compare") do
   @currency = params.fetch("currency")
   @compare = params.fetch("compare")
 
-  api_url = "http://api.exchangerate.host/list?access_key=#{ENV["EXCHANGE_RATE_KEY"]}"
+  api_url = "http://api.exchangerate.host/convert?access_key=#{ENV["EXCHANGE_RATE_KEY"]}&from=#{@currency}&to=#{@compare}&amount=1"
   raw_data = HTTP.get(api_url)
   raw_data_string = raw_data.to_s
   parsed_data = JSON.parse(raw_data_string)
+
+  @result = parsed_data.fetch("result")
+
+  pp parsed_data
 
   erb(:currency_compare)
 end
